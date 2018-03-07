@@ -10,7 +10,7 @@ namespace WebMvc.Controllers
 {
     public class HomeController : Controller
     {
-        private static IList<Pessoa> PessoaList = new List<Pessoa>
+        private static IList<Pessoa> pessoaList = new List<Pessoa>
         {
             new Pessoa { Id = 1, Nome = "Joao"},
             new Pessoa { Id = 2, Nome = "Juao"},
@@ -19,15 +19,15 @@ namespace WebMvc.Controllers
 
         public IList<Pessoa> GetPessoas()
         {
-            return PessoaList;
+            return pessoaList;
         }
 
         public Pessoa AddPessoa(string nome)
         {
             try {
                 var pessoa = new Pessoa { Nome = nome };
-                pessoa.Id = PessoaList.Max(p => p.Id) + 1;
-                PessoaList.Add(pessoa);
+                pessoa.Id = pessoaList.Max(p => p.Id) + 1;
+                pessoaList.Add(pessoa);
                 return pessoa;
             } catch{}
 
